@@ -1,6 +1,7 @@
-package mate.dao;
+package mate.dao.impl;
 
 import java.util.List;
+import mate.dao.ProductDao;
 import mate.model.Product;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -41,11 +42,23 @@ public class ProductDaoImpl implements ProductDao {
     }
 
     @Override
+    public Product get(Long id) {
+        return null;
+    }
+
+    @Override
     public List<Product> findAll() {
         try (Session session = sessionFactory.openSession()) {
             Query<Product> getAllProductQuery = session
                     .createQuery("from Product", Product.class);
             return getAllProductQuery.getResultList();
+        } catch (Exception e) {
+            throw new RuntimeException("Can't get list of products from DB", e);
         }
+    }
+
+    @Override
+    public List<Product> findByBrand(String brand) {
+        return null;
     }
 }

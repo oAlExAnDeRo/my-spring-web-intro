@@ -1,10 +1,5 @@
 package mate;
 
-import java.math.BigDecimal;
-import mate.model.Product;
-import mate.service.ProductService;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-
 public class Main {
     public static void main(String[] args) {
         /*
@@ -26,28 +21,5 @@ public class Main {
             13. Add taglibs standard dependency to pom.xml
             14.Configure Tomcat and run app
          */
-
-        // create products
-        Product iphone = new Product();
-        iphone.setName("iPhone 7");
-        iphone.setPrice(BigDecimal.valueOf(499));
-
-        Product samsung = new Product();
-        samsung.setName("Samsung S20");
-        samsung.setPrice(BigDecimal.valueOf(699));
-
-        Product samsung10 = new Product();
-        samsung10.setName("Samsung S10");
-        samsung10.setPrice(BigDecimal.valueOf(599));
-
-        AnnotationConfigApplicationContext context
-                = new AnnotationConfigApplicationContext();
-        ProductService productService = context.getBean(ProductService.class);
-
-        productService.save(iphone);
-        productService.save(samsung);
-        productService.save(samsung10);
-
-        productService.findAll().forEach(System.out::println);
     }
 }
