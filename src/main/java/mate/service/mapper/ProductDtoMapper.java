@@ -17,7 +17,8 @@ public class ProductDtoMapper {
         responseDto.setId(product.getId());
         responseDto.setName(product.getName());
         responseDto.setPrice(product.getPrice());
-        responseDto.setCategoryId(product.getCategory().getId());
+        responseDto.setBrand(product.getBrand());
+        //responseDto.setCategoryId(product.getCategory().getId());
         return responseDto;
     }
 
@@ -26,8 +27,8 @@ public class ProductDtoMapper {
         product.setBrand(requestDto.getBrand());
         product.setName(requestDto.getName());
         product.setPrice(requestDto.getPrice());
-        product.setCategory(categoryService
-                .get(requestDto.getCategoryId()));
+        //product.setCategory(categoryService
+        //.get(requestDto.getCategoryId()));
         return product;
     }
 }

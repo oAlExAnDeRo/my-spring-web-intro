@@ -1,9 +1,7 @@
 package mate.controller;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import mate.model.Product;
-import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class DemoController {
 
     @GetMapping("/index")
-    public String index(@NotNull Model model) {
+    public String index(Model model) {
         model.addAttribute("message", "Hello Spring!");
         return "index";
     }
@@ -32,6 +30,6 @@ public class DemoController {
     @ResponseBody
     @GetMapping("/phone")
     public Product getProduct() {
-        return new Product(1L, "iPhone 7", BigDecimal.valueOf(599));
+        return null; //new Product(1L, "iPhone 7", BigDecimal.valueOf(599));
     }
 }

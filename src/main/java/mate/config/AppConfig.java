@@ -26,9 +26,9 @@ public class AppConfig {
     public DataSource getDataSource() {
         BasicDataSource dataSource = new BasicDataSource();
         dataSource.setDriverClassName(environment.getProperty("db.driver"));
-        dataSource.setUrl("db.url");
-        dataSource.setUsername("db.username");
-        dataSource.setPassword("db.password");
+        dataSource.setUrl(environment.getProperty("db.url"));
+        dataSource.setUsername(environment.getProperty("db.username"));
+        dataSource.setPassword(environment.getProperty("db.password"));
         return dataSource;
     }
 
@@ -38,9 +38,10 @@ public class AppConfig {
         localSessionFactoryBean.setDataSource(getDataSource());
 
         Properties properties = new Properties();
-        properties.put("show_sql", environment.getProperty("hibernate.show_sql"));
-        properties.put("hibernate.hbm2_ddl.auto",
-                environment.getProperty("hibernate.hbm2_ddl.auto"));
+        properties.put("hibernate.show_sql", environment.getProperty("hibernate.show_sql"));
+        properties.put("hibernate.hbm2ddl.auto",
+                environment.getProperty("hibernate.hbm2ddl.auto"));
+        properties.put("hibernate.dialect", environment.getProperty("hibernate.dialect"));
         localSessionFactoryBean.setHibernateProperties(properties);
 
         localSessionFactoryBean.setPackagesToScan("mate.model");

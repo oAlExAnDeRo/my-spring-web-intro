@@ -1,9 +1,10 @@
 package mate.dao;
 
+import java.util.Optional;
 import mate.model.Category;
 
 public interface CategoryDao {
     Category save(Category category);
 
-    Category get(Long id);
+    Optional<Category> get(Long id);
 }

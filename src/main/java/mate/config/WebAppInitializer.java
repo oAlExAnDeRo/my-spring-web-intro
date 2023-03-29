@@ -1,6 +1,5 @@
 package mate.config;
 
-import org.jetbrains.annotations.NotNull;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class WebAppInitializer extends
@@ -16,7 +15,7 @@ public class WebAppInitializer extends
     }
 
     @Override
-    protected String @NotNull [] getServletMappings() {
+    protected String [] getServletMappings() {
         return new String[] {"/"};
     }
 }

@@ -50,19 +50,22 @@ public class ProductController {
     public String injectMockData() {
         Product iphone = new Product();
         iphone.setName("iPhone 7");
+        iphone.setBrand("Apple");
         iphone.setPrice(BigDecimal.valueOf(499));
 
         Product samsung = new Product();
         samsung.setName("Samsung S20");
+        samsung.setBrand("Samsung");
         samsung.setPrice(BigDecimal.valueOf(699));
 
         Product samsung10 = new Product();
         samsung10.setName("Samsung S10");
+        samsung10.setBrand("Samsung");
         samsung10.setPrice(BigDecimal.valueOf(599));
 
         productService.save(iphone);
         productService.save(samsung);
         productService.save(samsung10);
-        return "Done!";
+        return "Mock data injected successfully";
     }
 }

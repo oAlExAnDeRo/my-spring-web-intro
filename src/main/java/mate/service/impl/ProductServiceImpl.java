@@ -33,6 +33,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product get(Long id) {
-        return productDao.get(id);
+        return productDao.get(id).orElseThrow(
+                () -> new RuntimeException("Can't get productId" + id));
     }
 }

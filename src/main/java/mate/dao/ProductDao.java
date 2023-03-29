@@ -1,12 +1,13 @@
 package mate.dao;
 
 import java.util.List;
+import java.util.Optional;
 import mate.model.Product;
 
 public interface ProductDao {
     Product save(Product product);
 
-    Product get(Long id);
+    Optional<Product> get(Long id);
 
     List<Product> findAll();
 
